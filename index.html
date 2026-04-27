@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centurion of Faith</title>
-    <meta name="description" content="Bringing the Kingdom of God into conflict with the world, its politics, and every ideology that opposes Jesus Christ.">
+    <meta name="description" content="Bringing the Kingdom of God into conflict with the world — confronting abortion, calling Muslims to repent, and proclaiming the Gospel.">
     <style>
         :root {
             --primary-red: #c8102e;
@@ -22,7 +22,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 2px solid var(--primary-red);
+            border-bottom: 3px solid var(--primary-red);
         }
         nav {
             display: flex;
@@ -32,21 +32,45 @@
             margin: 0 auto;
         }
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: bold;
             color: var(--primary-red);
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
         }
         .nav-links a {
             color: #ffffff;
             text-decoration: none;
-            margin-left: 2rem;
             font-weight: 500;
         }
         .nav-links a:hover {
             color: var(--primary-red);
         }
+
+        /* Mobile Navigation Improvements */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #000;
+                padding: 1rem 5%;
+                display: none; /* We'll make this toggle later if needed */
+            }
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+        }
+
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat;
             display: flex;
             align-items: center;
@@ -54,75 +78,81 @@
             text-align: center;
             padding: 0 5%;
         }
+        .hero-content {
+            max-width: 900px;
+        }
         .hero-content h1 {
-            font-size: 4.5rem;
-            margin-bottom: 1rem;
+            font-size: 3.8rem;
+            margin-bottom: 1.2rem;
             color: var(--primary-red);
         }
         .hero-content p {
-            font-size: 1.5rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
+            font-size: 1.35rem;
+            margin-bottom: 2rem;
         }
         .btn {
             display: inline-block;
-            padding: 14px 32px;
-            font-size: 1.1rem;
+            padding: 16px 32px;
+            font-size: 1.15rem;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 4px;
-            margin: 0 10px;
+            border-radius: 6px;
+            margin: 10px 8px;
+            min-width: 180px;
         }
         .btn-primary {
             background-color: var(--primary-red);
             color: white;
         }
-        .btn-primary:hover {
-            background-color: #a00d24;
-        }
+        .btn-primary:hover { background-color: #a00d24; }
         .btn-secondary {
-            background-color: transparent;
+            background: transparent;
             color: white;
             border: 2px solid white;
         }
+
         section {
-            padding: 80px 5%;
+            padding: 70px 5%;
             max-width: 1200px;
             margin: 0 auto;
         }
         h2 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             margin-bottom: 2rem;
             color: var(--primary-red);
             text-align: center;
         }
         .message-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .message-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
         .card {
             background-color: #1a1a1a;
-            padding: 2rem;
+            padding: 1.8rem;
             border-left: 6px solid var(--primary-red);
         }
+
         footer {
             background-color: #000;
             padding: 3rem 5%;
             text-align: center;
-            border-top: 2px solid var(--primary-red);
+            border-top: 3px solid var(--primary-red);
         }
         .social-links a {
             color: white;
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin: 0 15px;
-            text-decoration: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <nav>
             <div class="logo">CENTURION OF FAITH</div>
@@ -139,69 +169,71 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Centurion of Faith</h1>
-            <p>Bringing the Kingdom of God into direct conflict with the world, its politics, and every ideology that opposes the commandments of Jesus Christ.</p>
-            <p>We confront the culture without compromise — demanding the immediate abolition of abortion to the glory of God, calling every Muslim to repent and turn to Christ, and exposing every false religion that stands against the true Church established by our Lord.</p>
+            <p>Bringing the Kingdom of God into direct conflict with the world, its politics, and every ideology that opposes Jesus Christ.</p>
+            <p>We confront abortion — demanding its immediate abolition to the glory of God.<br>
+               We call every Muslim to repent and turn to Christ alone.<br>
+               We expose false religions that stand against the true Church.</p>
             <div>
-                <a href="#confrontations" class="btn btn-primary">Watch Our Confrontations</a>
+                <a href="#confrontations" class="btn btn-primary">Watch Confrontations</a>
                 <a href="#involved" class="btn btn-secondary">Join the Mission</a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section id="about">
         <h2>Who We Are</h2>
-        <p style="text-align: center; font-size: 1.3rem; max-width: 900px; margin: 0 auto;">
-            Centurion of Faith is a bold Christian activism ministry dedicated to advancing the Kingdom of God in open conflict with the spirit of this age. 
-            We take the Gospel to the streets. We record our conversations with the public and publish them across all social media platforms to confront culture and renew minds with the truth of Scripture.
+        <p style="text-align: center; font-size: 1.25rem; max-width: 900px; margin: 0 auto;">
+            Centurion of Faith is a bold Christian activism ministry that takes the Gospel to the streets. 
+            We record our public conversations and publish them across social media to confront culture and glorify God.
         </p>
     </section>
 
-    <!-- Our Message Section -->
+    <!-- Our Message -->
     <section id="message" style="background-color: #111;">
         <h2>Our Uncompromising Message</h2>
         <div class="message-grid">
             <div class="card">
-                <h3>Abortion Must End</h3>
-                <p>We demand the immediate and total abolition of abortion. It is the shedding of innocent blood, and it must stop for the glory of God.</p>
+                <h3>Abortion Must End Now</h3>
+                <p>The shedding of innocent blood must stop immediately for the glory of God.</p>
             </div>
             <div class="card">
-                <h3>Call to Muslims</h3>
-                <p>We lovingly but boldly call every Muslim to repent of Islam and turn to Jesus Christ — the only way, the truth, and the life.</p>
+                <h3>Repent from Islam</h3>
+                <p>We call every Muslim to turn from Islam and put their faith in Jesus Christ — the only Savior.</p>
             </div>
             <div class="card">
-                <h3>Against False Religions</h3>
-                <p>We confront every ideology and religion that opposes the one true Church established by Jesus Christ. No compromise with the world.</p>
+                <h3>No Compromise with False Religions</h3>
+                <p>We confront every teaching that opposes the one true Church established by Jesus Christ.</p>
             </div>
         </div>
     </section>
 
-    <!-- Confrontations Teaser -->
+    <!-- Confrontations -->
     <section id="confrontations">
         <h2>Street Confrontations</h2>
-        <p style="text-align: center; font-size: 1.3rem;">We take the Gospel to the public square. Watch our latest conversations exposing lies and proclaiming truth.</p>
-        <!-- You will add YouTube embeds here later -->
-        <p style="text-align: center; margin-top: 2rem;">
-            <a href="#" class="btn btn-primary">View All Confrontations →</a>
+        <p style="text-align: center; font-size: 1.3rem; max-width: 800px; margin: 0 auto 2rem;">
+            Watch our latest public engagements as we proclaim truth in the public square.
+        </p>
+        <p style="text-align: center;">
+            <a href="#" class="btn btn-primary">View Videos →</a>
         </p>
     </section>
 
     <!-- Get Involved -->
     <section id="involved" style="background-color: #111; text-align: center;">
         <h2>Get Involved</h2>
-        <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto 2rem;">
-            Pray for us. Share our content. Support the mission financially. Join us on the streets.
+        <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto 2rem;">
+            Pray. Share our content. Support the work. Join us on the streets.
         </p>
-        <a href="#" class="btn btn-primary" style="font-size: 1.3rem; padding: 18px 40px;">Support the Mission</a>
+        <a href="#" class="btn btn-primary" style="padding: 18px 40px; font-size: 1.25rem;">Support the Mission</a>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Centurion of Faith — Advancing the Kingdom of God</p>
-        <div class="social-links" style="margin-top: 1.5rem;">
-            <a href="https://youtube.com" target="_blank">▶️</a>
-            <a href="https://instagram.com" target="_blank">📷</a>
-            <a href="https://x.com" target="_blank">𝕏</a>
+        <div class="social-links" style="margin-top: 2rem;">
+            <a href="#">YouTube</a>
+            <a href="#">Instagram</a>
+            <a href="#">X / Twitter</a>
         </div>
     </footer>
 
