@@ -31,14 +31,13 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        .logo {
-            font-size: 1.6rem;
-            font-weight: bold;
-            color: var(--primary-red);
+        .logo-img {
+            height: 60px;           /* Adjust this number if your logo is too big/small */
+            width: auto;
         }
         .nav-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.8rem;
         }
         .nav-links a {
             color: #ffffff;
@@ -49,24 +48,9 @@
             color: var(--primary-red);
         }
 
-        /* Mobile Navigation Improvements */
         @media (max-width: 768px) {
-            .nav-links {
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: #000;
-                padding: 1rem 5%;
-                display: none; /* We'll make this toggle later if needed */
-            }
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-            .hero-content p {
-                font-size: 1.2rem;
-            }
+            .logo-img { height: 48px; }
+            .nav-links { gap: 1rem; font-size: 0.95rem; }
         }
 
         .hero {
@@ -128,9 +112,7 @@
             gap: 1.5rem;
         }
         @media (min-width: 768px) {
-            .message-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            .message-grid { grid-template-columns: repeat(3, 1fr); }
         }
         .card {
             background-color: #1a1a1a;
@@ -144,18 +126,14 @@
             text-align: center;
             border-top: 3px solid var(--primary-red);
         }
-        .social-links a {
-            color: white;
-            font-size: 2rem;
-            margin: 0 15px;
-        }
     </style>
 </head>
 <body>
 
     <header>
         <nav>
-            <div class="logo">CENTURION OF FAITH</div>
+            <!-- Logo will appear here -->
+            <img src="logo.png" alt="Centurion of Faith Logo" class="logo-img">
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#message">Our Message</a>
@@ -165,7 +143,7 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (still using placeholder for now) -->
     <section class="hero">
         <div class="hero-content">
             <h1>Centurion of Faith</h1>
@@ -180,7 +158,7 @@
         </div>
     </section>
 
-    <!-- About -->
+    <!-- Rest of the sections remain the same -->
     <section id="about">
         <h2>Who We Are</h2>
         <p style="text-align: center; font-size: 1.25rem; max-width: 900px; margin: 0 auto;">
@@ -189,7 +167,6 @@
         </p>
     </section>
 
-    <!-- Our Message -->
     <section id="message" style="background-color: #111;">
         <h2>Our Uncompromising Message</h2>
         <div class="message-grid">
@@ -208,7 +185,6 @@
         </div>
     </section>
 
-    <!-- Confrontations -->
     <section id="confrontations">
         <h2>Street Confrontations</h2>
         <p style="text-align: center; font-size: 1.3rem; max-width: 800px; margin: 0 auto 2rem;">
@@ -219,7 +195,6 @@
         </p>
     </section>
 
-    <!-- Get Involved -->
     <section id="involved" style="background-color: #111; text-align: center;">
         <h2>Get Involved</h2>
         <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto 2rem;">
@@ -230,11 +205,6 @@
 
     <footer>
         <p>&copy; 2026 Centurion of Faith — Advancing the Kingdom of God</p>
-        <div class="social-links" style="margin-top: 2rem;">
-            <a href="#">YouTube</a>
-            <a href="#">Instagram</a>
-            <a href="#">X / Twitter</a>
-        </div>
     </footer>
 
 </body>
