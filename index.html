@@ -14,7 +14,7 @@
             font-family: 'Arial', sans-serif;
             background-color: #0a0a0a;
             color: #ffffff;
-            line-height: 1.6;
+            line-height: 1.7;
         }
         header {
             background-color: #000000;
@@ -32,10 +32,19 @@
             margin: 0 auto;
         }
         .logo-img {
-            height: 65px;
+            height: 55px;
             width: auto;
-            max-width: 320px;
+            max-width: 280px;
         }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
         .nav-links {
             display: flex;
             gap: 1.8rem;
@@ -45,21 +54,38 @@
             text-decoration: none;
             font-weight: 500;
         }
-        .nav-links a:hover {
-            color: var(--primary-red);
-        }
 
+        /* Mobile Menu */
         @media (max-width: 768px) {
-            .logo-img { height: 50px; }
-            .nav-links { gap: 1rem; font-size: 0.95rem; }
+            .hamburger {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #000000;
+                padding: 1.5rem 5%;
+                gap: 1.2rem;
+                border-top: 2px solid var(--primary-red);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links a {
+                font-size: 1.1rem;
+                padding: 8px 0;
+            }
         }
 
-        /* Updated Hero - Lighter overlay + better mobile handling */
         .hero {
-            min-height: 100vh;
+            min-height: 90vh;
             background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)), 
                         url('hero.jpg') center/cover no-repeat;
-            background-position: center 30%;     /* Adjust this if needed */
+            background-position: center 40%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -67,33 +93,48 @@
             padding: 0 5%;
         }
 
-        /* Better mobile optimization for background */
-        @media (max-width: 768px) {
-            .hero {
-                background-position: center 40%;   /* Moves the focal point up on phones */
-                background-size: cover;
-                min-height: 90vh;                  /* Slightly shorter on mobile */
-            }
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-            .hero-content p {
-                font-size: 1.2rem;
-            }
-        }
-
-        .hero-content {
-            max-width: 900px;
-        }
         .hero-content h1 {
-            font-size: 3.8rem;
-            margin-bottom: 1.2rem;
+            font-size: 3.6rem;
+            margin-bottom: 1rem;
             color: var(--primary-red);
         }
         .hero-content p {
-            font-size: 1.35rem;
-            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            margin-bottom: 1.8rem;
         }
+
+        section {
+            padding: 70px 5% 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 60px 6% 50px; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .hero-content p { font-size: 1.15rem; }
+        }
+
+        h2 {
+            font-size: 2.6rem;
+            margin-bottom: 2rem;
+            color: var(--primary-red);
+            text-align: center;
+        }
+
+        .message-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.8rem;
+        }
+
+        .card {
+            background-color: #1a1a1a;
+            padding: 1.8rem;
+            border-left: 6px solid var(--primary-red);
+            border-radius: 4px;
+        }
+
         .btn {
             display: inline-block;
             padding: 16px 32px;
@@ -101,43 +142,15 @@
             font-weight: bold;
             text-decoration: none;
             border-radius: 6px;
-            margin: 10px 8px;
-            min-width: 180px;
+            margin: 12px 8px;
+            min-width: 200px;
         }
-        .btn-primary {
-            background-color: var(--primary-red);
-            color: white;
-        }
+        .btn-primary { background-color: var(--primary-red); color: white; }
         .btn-primary:hover { background-color: #a00d24; }
         .btn-secondary {
             background: transparent;
             color: white;
             border: 2px solid white;
-        }
-
-        section {
-            padding: 70px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--primary-red);
-            text-align: center;
-        }
-        .message-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-        @media (min-width: 768px) {
-            .message-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-        .card {
-            background-color: #1a1a1a;
-            padding: 1.8rem;
-            border-left: 6px solid var(--primary-red);
         }
 
         footer {
@@ -146,6 +159,10 @@
             text-align: center;
             border-top: 3px solid var(--primary-red);
         }
+
+        @media (max-width: 768px) {
+            .btn { display: block; margin: 12px auto; text-align: center; }
+        }
     </style>
 </head>
 <body>
@@ -153,7 +170,12 @@
     <header>
         <nav>
             <img src="logo.png" alt="Centurion of Faith Logo" class="logo-img">
-            <div class="nav-links">
+            
+            <!-- Hamburger Icon -->
+            <div class="hamburger" id="hamburger">☰</div>
+            
+            <!-- Navigation Links -->
+            <div class="nav-links" id="navLinks">
                 <a href="#about">About</a>
                 <a href="#message">Our Message</a>
                 <a href="#confrontations">Confrontations</a>
@@ -178,7 +200,7 @@
 
     <section id="about">
         <h2>Who We Are</h2>
-        <p style="text-align: center; font-size: 1.25rem; max-width: 900px; margin: 0 auto;">
+        <p style="text-align: center; font-size: 1.25rem; max-width: 850px; margin: 0 auto;">
             Centurion of Faith is a bold Christian activism ministry that takes the Gospel to the streets. 
             We record our public conversations and publish them across social media to confront culture and glorify God.
         </p>
@@ -223,6 +245,16 @@
     <footer>
         <p>&copy; 2026 Centurion of Faith — Advancing the Kingdom of God</p>
     </footer>
+
+    <script>
+        // JavaScript for Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 
 </body>
 </html>
