@@ -37,7 +37,6 @@
             max-width: 280px;
         }
 
-        /* Hamburger Menu */
         .hamburger {
             display: none;
             font-size: 1.8rem;
@@ -75,10 +74,6 @@
             .nav-links.active {
                 display: flex;
             }
-            .nav-links a {
-                font-size: 1.1rem;
-                padding: 8px 0;
-            }
         }
 
         .hero {
@@ -110,7 +105,7 @@
         }
 
         @media (max-width: 768px) {
-            section { padding: 60px 6% 50px; }
+            section { padding: 60px 6% 55px; }
             .hero-content h1 { font-size: 2.8rem; }
             .hero-content p { font-size: 1.15rem; }
         }
@@ -170,16 +165,13 @@
     <header>
         <nav>
             <img src="logo.png" alt="Centurion of Faith Logo" class="logo-img">
-            
-            <!-- Hamburger Icon -->
             <div class="hamburger" id="hamburger">☰</div>
             
-            <!-- Navigation Links -->
             <div class="nav-links" id="navLinks">
-                <a href="#about">About</a>
-                <a href="#message">Our Message</a>
-                <a href="#confrontations">Confrontations</a>
-                <a href="#involved">Get Involved</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#message" class="nav-link">Our Message</a>
+                <a href="#confrontations" class="nav-link">Confrontations</a>
+                <a href="#involved" class="nav-link">Get Involved</a>
             </div>
         </nav>
     </header>
@@ -247,12 +239,20 @@
     </footer>
 
     <script>
-        // JavaScript for Hamburger Menu
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
+        const navLinksAll = document.querySelectorAll('.nav-link');
 
+        // Toggle menu when hamburger is clicked
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+        });
+
+        // Close menu when any link is clicked
+        navLinksAll.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
         });
     </script>
 
